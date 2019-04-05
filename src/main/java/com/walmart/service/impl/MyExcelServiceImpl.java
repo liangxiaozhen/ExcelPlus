@@ -1,5 +1,7 @@
 package com.walmart.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +37,10 @@ public class MyExcelServiceImpl implements MyExcelService{
 
 	public int updateByPrimaryKey(MyExcel record) {
 		return myExcelMapper.updateByPrimaryKey(record);
+	}
+
+	public List<MyExcel> selectAll() {
+		return myExcelMapper.selectAll();
 	}
 
 }

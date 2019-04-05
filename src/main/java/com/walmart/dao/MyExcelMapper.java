@@ -1,5 +1,7 @@
 package com.walmart.dao;
 
+import java.util.List;
+
 import com.walmart.model.MyExcel;
 
 public interface MyExcelMapper {
@@ -14,4 +16,6 @@ public interface MyExcelMapper {
     int updateByPrimaryKeySelective(MyExcel record);
 
     int updateByPrimaryKey(MyExcel record);
+    
+    List<MyExcel> selectAll();
 }
