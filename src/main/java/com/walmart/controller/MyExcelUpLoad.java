@@ -29,13 +29,13 @@ public class MyExcelUpLoad {
 			System.out.println(myExcel);
 		}*/
 		List<MyExcel> list = myExcelService.selectAll();
-		String path = "D:" + File.separator + "out3.xls";
+		String path = "D:" + File.separator + "out4.xls";
 		Until.write(path,list);
 		return "index";
 	}
 	
 	/**
-	 * 文件下载
+	 * 文件下载  把数据库数据导出为Excel 文件
 	 * @return
 	 * @throws Exception
 	 */
@@ -52,7 +52,7 @@ public class MyExcelUpLoad {
 	}
 	
 	/**
-	 * 文件上传
+	 * 文件上传 Excel的上传，并存进去数据库
 	 * @param file
 	 * @return
 	 * @throws IOException
@@ -93,7 +93,28 @@ public class MyExcelUpLoad {
 //			arrayList.add(bo);
 //			arrayList.add(bo1);
 //			
-			
+			/* SchedulerFactory sf = new StdSchedulerFactory(); 
+			 try { 
+				 Scheduler sched = sf.getScheduler(); 
+				 Date nowTime = new Date(); 
+				 System.out.println(nowTime+"开始时间"); 
+				 //将分秒数进位取整nowTime=15:40:28 runTime=15:41:00 
+				 Date runTime = DateBuilder.evenMinuteDate(nowTime);
+				 System.out.println(runTime+"结束时间"); 
+				 JobDetail job = JobBuilder.newJob(HelloJob.class).withIdentity("job1", "group1").build(); 
+				 //单次定时任务 //Trigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1").startAt(runTime).build(); 
+				 //多次循环定时任务"0/20 * * * * ?"从*年*月*日  *：*：00秒开始每20秒执行一次 
+				 CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity("trigger1", "group1").withSchedule(CronScheduleBuilder.cronSchedule("00 35 22 * * ?")) .build(); 
+				 Date ft = sched.scheduleJob(job, trigger); 
+				 System.out.println(job.getKey() + " has been scheduled to run at: " + ft + " and repeat based on expression: " + trigger.getCronExpression());
+				 sched.start(); 
+				 Thread.sleep(60000*5); 
+				 sched.shutdown(true); 
+				 }catch (Exception e) {
+					 System.out.println(e.getMessage());
+				}*/
 		}
+	
+
 
 }
