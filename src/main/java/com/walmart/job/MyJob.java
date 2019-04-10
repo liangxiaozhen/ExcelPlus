@@ -21,13 +21,13 @@ public class MyJob {
 	 private MyExcelService myExcelService;
 	 
 	 //每30秒执行一次
-    @Scheduled(fixedRate = 1000 * 3)
+    /*@Scheduled(fixedRate = 1000 * 3)
     public void reportCurrentTime(){
 	   LocalDateTime localDateTime =LocalDateTime.now();
        System.out.println("当前时间为:" + localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-    }
+    }*/
 	 //定时执行
-	 @Scheduled(cron = "50 20 23 * * ?")
+	 @Scheduled(cron = "50 20 20 * * ?")
 	 public void   reportCurrentByCron(){
         //获取当前时间
         LocalDateTime localDateTime =LocalDateTime.now();
